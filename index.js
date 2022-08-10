@@ -5,6 +5,8 @@ const visitorRoute =require('./routes/visitor.route');
 const bodyParser = require('body-parser');
 var cors = require('cors')
 
+const db = 'mongodb+srv://rahul:passwordmongo@mern.zbitiqw.mongodb.net/hostel-database?retryWrites=true&w=majority'
+
 app.use(cors())
 
 app.get('/',(req,res)=>{
@@ -13,15 +15,15 @@ app.get('/',(req,res)=>{
 app.use(bodyParser.json());
 app.use('/visitor',visitorRoute);
 
-const PORT = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 
 
 
-app.listen(PORT,()=>{
+app.listen(port,()=>{
     console.log(`Server is running at port:${PORT}`)
 })
 
-mongoose.connect('mongodb://localhost:27017/Hostel_Visitors',{ useNewUrlParser: true,useUnifiedTopology:true })
+mongoose.connect(db,{ useNewUrlParser: true,useUnifiedTopology:true })
 .then(()=>{
     console.log('Database is connected')
 }).catch((e)=>{
