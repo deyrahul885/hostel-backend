@@ -8,7 +8,7 @@ var cors = require('cors')
 app.use(cors())
 
 app.get('/',(req,res)=>{
-    res.status(200).send(`Welcome to our hostel.`);
+    res.status(200).send(`Welcome to our girl's hostel.`);
 })
 app.use(bodyParser.json());
 app.use('/visitor',visitorRoute);
